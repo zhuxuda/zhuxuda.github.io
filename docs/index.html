@@ -10,6 +10,7 @@
     <meta content="no-cache" http-equiv="pragma" />
     <meta content="0" http-equiv="expires" />
     <title>一起看烟花吧</title>
+    <script src="assets/pizzicato.js"></script>
   </head>
   <body>
     <div id="app">
@@ -39,10 +40,14 @@
         context.fillRect(0, 0, canvas.width, canvas.height);
       }
       function mouseDownHandler(e) {
+        playBoom()
         console.log(window.innerWidth,window.innerHeight)
         var x = e.clientX;
         var y = e.clientY;
         fire(x, y);
+        setTimeout( function(){ 
+          playPilipala() 
+        }, 600);
       }
       var rid;
       var particles = [];
@@ -105,11 +110,26 @@
           context.fill();
         }
       }
+
+
+      function playBoom() {
+        var acousticGuitar = new Pizzicato.Sound('./assets/boom.mp3', function() {
+            // Sound loaded!
+            acousticGuitar.play();
+        });
+      }
+      function playPilipala() {
+        var acousticGuitar = new Pizzicato.Sound('./assets/pilipala.mp3', function() {
+            // Sound loaded!
+            acousticGuitar.play();
+        });
+      }
       
       document.addEventListener("mousedown", mouseDownHandler, false);
 
       // 随机播放
       
     })();
+  
   </script>
 </html>
