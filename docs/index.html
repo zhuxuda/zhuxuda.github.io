@@ -111,18 +111,17 @@
         }
       }
 
+      var boomPlayer = new Pizzicato.Sound('./assets/boom.mp3');
+      var pilipalaPlayer = new Pizzicato.Sound('./assets/pilipala.mp3');
 
       function playBoom() {
-        var acousticGuitar = new Pizzicato.Sound('./assets/boom.mp3', function() {
-            // Sound loaded!
-            acousticGuitar.play();
-        });
+        // stop
+        boomPlayer.stop();
+        boomPlayer.play();
       }
       function playPilipala() {
-        var acousticGuitar = new Pizzicato.Sound('./assets/pilipala.mp3', function() {
-            // Sound loaded!
-            acousticGuitar.play();
-        });
+        pilipalaPlayer.stop();
+        pilipalaPlayer.play();
       }
       
       document.addEventListener("mousedown", mouseDownHandler, false);
